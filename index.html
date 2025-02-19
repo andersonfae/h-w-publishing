@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura de Leads e Página de Produto</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header id="header" class="sticky-header">
+        <div class="hamburger-menu">
+          <button id="hamburger-btn">&#9776;</button>
+        </div>
+        <nav class="container d-flex justify-content-between align-items-center">
+            <h1 class="logo">Produto X</h1>
+            <ul class="nav-links d-flex list-unstyled gap-3">
+                <li><a href="#about" class="nav-button">Sobre</a></li>
+                <li><a href="#gallery" class="nav-button">Galeria</a></li>
+                <li><a href="#testimonials" class="nav-button">Depoimentos</a></li>
+                <li><a href="#cta" class="nav-button">Promoção</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="lead-form" class="container section-spacing">
+            <h2>Cadastre-se para saber mais</h2>
+            <form id="form">
+                <input type="text" id="name" placeholder="Nome" required>
+                <span class="error-message" id="error-name"></span>
+                <input type="email" id="email" placeholder="E-mail" required>
+                <span class="error-message" id="error-email"></span>
+                <input type="tel" id="phone" placeholder="(99) 99999-9999" required>
+                <span class="error-message" id="error-phone"></span>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section id="product-page" class="container section-spacing d-none">
+            <h2 id="welcome-msg"></h2>
+              <section id="hero-carousel" class="carousel-container">
+                  <div class="main-image">
+                      <img id="carousel-main-img" src="assets/img/produto1.webp" alt="Produto 1">
+                  </div>
+                  <div class="thumbnail-container">
+                      <img class="thumbnail" src="assets/img/produto1.webp" alt="Produto 1" data-src="assets/img/produto1.webp" data-description="Monitor Full HD de alta definição, ideal para trabalho e entretenimento.">
+                      <img class="thumbnail" src="assets/img/produto2.webp" alt="Produto 2" data-src="assets/img/produto2.webp" data-description="Mouse ergonômico sem fio, com alta precisão e conforto para longas horas de uso.">
+                      <img class="thumbnail" src="assets/img/produto3.webp" alt="Produto 3" data-src="assets/img/produto3.webp" data-description="Teclado mecânico RGB para gamers e profissionais que buscam precisão e estilo.">
+                      <img class="thumbnail" src="assets/img/produto4.webp" alt="Produto 4" data-src="assets/img/produto4.webp" data-description="Microfone condensador profissional para gravações e transmissões de alta qualidade.">
+                  </div>
+              </section>
+            <section id="about" class="section-spacing">
+                <h3>Sobre o Produto</h3>
+                <p id="product-description">Clique em um produto para ver mais detalhes.</p>
+                <img id="product-image" src="assets/img/produto1.webp" alt="Imagem do Produto" class="about-image">
+            </section>
+            <section id="gallery" class="section-spacing">
+              <h3>Galeria</h3>
+              <div class="gallery-container">
+                  <img class="gallery-image" src="assets/img/produto1.webp" alt="Produto 1" data-src="assets/img/produto1.webp">
+                  <img class="gallery-image" src="assets/img/produto2.webp" alt="Produto 2" data-src="assets/img/produto2.webp">
+                  <img class="gallery-image" src="assets/img/produto3.webp" alt="Produto 3" data-src="assets/img/produto3.webp">
+                  <img class="gallery-image" src="assets/img/produto4.webp" alt="Produto 4" data-src="assets/img/produto4.webp">
+              </div>
+          </section>
+          <section id="testimonials" class="section-spacing">
+            <h3>Depoimentos</h3>
+            <div class="testimonial-container">
+                <button id="prev-testimonial" class="carousel-btn">&#10094;</button>
+                <div class="testimonial-slider">
+                    <div class="testimonial active">
+                        <p>"Produto incrível! Qualidade excelente e entrega rápida. Recomendo!"</p>
+                        <h4>- João Silva</h4>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Superou minhas expectativas! Atendimento nota 10."</p>
+                        <h4>- Maria Oliveira</h4>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Já comprei várias vezes e sempre fico satisfeito. Ótimo custo-benefício!"</p>
+                        <h4>- Pedro Santos</h4>
+                    </div>
+                </div>
+                <button id="next-testimonial" class="carousel-btn">&#10095;</button>
+            </div>
+        </section>
+        <section id="cta" class="section-spacing">
+          <h3>Promoção termina em:</h3>
+          <div id="countdown" class="countdown-timer">
+              <span id="days">00</span>d :
+              <span id="hours">00</span>h :
+              <span id="minutes">00</span>m :
+              <span id="seconds">00</span>s
+          </div>
+          <button class="cta-button">Compre Agora</button>
+      </section>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 - Todos os direitos reservados.</p>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script>
+        document.querySelectorAll(".thumbnail").forEach(img => {
+            img.addEventListener("click", function () {
+                document.getElementById("carousel-main-img").src = this.dataset.src;
+                document.getElementById("product-description").textContent = this.dataset.description;
+                document.getElementById("product-image").src = this.dataset.src;
+            });
+        });
+    </script>
+</body>
+</html>
